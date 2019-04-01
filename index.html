@@ -7,57 +7,64 @@
 </head>
   
 <body>
-    
-        <div class="container">
+   
+    <div class="container">
         <div class="jumbotron">
                 <h1 class="display-4">Guess The Disney Character </h1>
                 <hr class="my-4">
                <p>Press any key to get started</p>
-                <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> maybe do a press to start? -->
         </div>
         </div>
 
    
     <div class="container">
-        
-        <div class="card">
-                <div class="card-body">
-                  Wins
-                </div>
-              </div>
-              <br>
-    
+      <div class="row">
+        <div class="col">
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title">Wins</h5>
+          <p class="card-text"  id = "numWins"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card w-50">
+        <div class="card-body">
+          <h5 class="card-title">Losses</h5>
+          <p id="numLosses"></p>
+        </div>
+      </div>
+       </div>
+   </div>
+
     <div class="row">
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
                         <div class="rightGuess"><h5 class="card-title">Current Word</h5></div>
-                        <div class="underscores"></div><p class="card-text">_ _ _ _</p></div>
-                </div>
+                        <p class="card-text" id="rightGuess"></p>
+                        <p class="card-text" id="underScore"></p>
+                
+                      </div>
               </div>
            <br>
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Number of guesses left</h5>
-                  <p class="card-text"  id = "guessesLeft">1</p>
+                  <p class="card-text"  id = "guessesLeft"></p>
                 </div>
               </div>
             </div>
         </div>
          <br>
-          <div class="card">
-                <div class="wrongGuess"></div><div class="card-body">
-                        Letters already guessed
-                </div>
-              </div>
-            </div>
+         <div class="card">
+          <div class="card-body">
+          Letters already guessed</div>
+          <p class="card-text"  id = "wrongGuesses"></p>
+        </div>
+        <br>
     
-    
-    
-
-          
-            
 
     
             

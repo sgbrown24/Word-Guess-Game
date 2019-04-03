@@ -1,103 +1,63 @@
 
+//computer letter
+window.onload = function() {
+    var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+    
+    
+    
+    //variables for tracking player wins, losses ans guesses left
+    var wins = 0;
+    var losses = 0;
+    var computerGuess = [];
+    var lettersGuessed = [];
+    var guessesLeft = 9;
+//    var usersGuesses;
+    var computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    computerGuess.push(computerChoice);
+    
 
-// array of words
-var word = ['Wendy', 'Tinker Bell', 'Alice', 'Kuzco', 'Happy', 'Pocahontas', 'Pongo', 'Winnie the pooh',
-'Mulan', 'Beast', 'Gaston', 'Aladdin', 'Lilo', 'Esmeralda', 'Nala'];
-// randomly choose
-var randNum = Math.floor(Math.random() * word.length); 
-var choosenWord = word[randNum];
-var rightGuesses = [];
-var wrongGuesses = [];
-var underScore = [];
-var usersGuesses = [];
-var guessesLeft = 10;
-var isFinished = false;
-var numLosses = 0;
-var numWins = 0;
-console.log(choosenWord);
 
-// / dom manipulation....note to self
-// var docUnderScore = document.getElementsById('underScore'); 
-var guessesDiv = document.getElementById("guessesLeft");        
-// var docRightGuess = document.getElementsById("rightGuesses");    
-// var docWrongGuesses = document.getElementsById( "wrongGuesses");
-
-// the underScore based on the length of the word by creating a for loop
-var generateUnderscore = () => {
-    for (var i = 0; i < choosenWord.length; i++) {
-        underScore.push('-');
-         }
-        
-    return underScore;
-}
-// document.getElementById("choosenWord").innerHTML = "  " + underScore.join("  ")
-
-// getting users guess  
-document.addEventListener('keypress', (event) =>{
-    var keycode = event.key;
-    if (guessesLeft <= 0) {
-        alert("Game over");
-        console.log("this is the keyboard" ,keycode); 
-    }
-    if (usersGuesses.includes(keycode) == false) 
-        usersGuesses.push(keycode);
-        
-        
-
-        function checkGuess(letter) {
-if (wrongGuesses.indexOf(letter) === -1) {
-    wrongGuesses.push(letter);
-    //if the letter isn't in the answer word then -1 the GuessesLeft
-    if (choosenWord.indexOf(letter) === -1) {
-        guessesLeft--;
-    } else { 
-        for (var i = 0; i < choosenWord.length; i++) {
-            if (letter === choosenWord[i]) {
-                underScore[i] = letter;
-           }
-        }
-    }    
-}
-};       
-    //function to check if the player is a winner
-    function isWinner() {
-        if (underScore.indexOf("_") === -1) {
-            Wins++;
-            isFinished = true;
-    }   
-};
-    //function to check if player is a loser
-function isLoser() {
-    // if the numGuessesRemaining is 0 then -1 num Losses and switch isFinished to true
-    if(guessesLeft<= 0) {
-        numLosses++;
-        isFinished = true;
-    }
-};  
-
-//event listener for key pressed
+    console.log(computerChoice)
+// game
 document.onkeyup = function(event) {
-    
-    if (isFinished) {
-        setup();
-        isFinished = false;
-    } else {
+    var playerGuess = event.key;
+    console.log(playerGuess)
+    lettersGuessed.push(playerGuess);
+    console.log(lettersGuessed);
+    if (playerGuess === computerChoice && guessesLeft > 0) {
+        wins++;
+        console.log(wins)
+        guessesLeft = 9;
+        lettersGuessed.length = 0;
+        // document.getElementById("usersGuesses").innerHTML = usersGuesses 
+        computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        console.log(computerGuess[0]);
+        document.getElementById("wins").innerHTML = wins
+        
+
+
+
     }
-};
+
+else if (playerGuess !== computerChoice && guessesLeft > 0) {
+    guessesLeft--;
+console.log(guessesLeft)
+document.getElementById("guessesLeft").innerHTML = guessesLeft
+}
 
 
-         
-//updates the HTML from the functions
-document.getElementById("guessesLeft").innerHTML=guessesLeft;
-document.getElementById("Wins").innerHTML = Wins;
-document.getElementById("underScore").innerHTML = underScore;
+else {
+    losses++;
+    guessesLeft = 9;
+    // letterGuessed.length = 0;
+  computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  document.getElementById("losses").innerHTML = losses
+
+}
+}
+}
 
 
-console.log("these are the users guesses",usersGuesses);
-   console.log("amount of guesses left", guessesLeft);
-   console.log("testing",keycode);
 
-    
-});
 
 

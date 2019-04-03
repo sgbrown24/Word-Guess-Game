@@ -10,9 +10,9 @@
    
     <div class="container">
         <div class="jumbotron">
-                <h1 class="display-4">Guess The Disney Character </h1>
+                <h1 class="display-4">Psychic Game</h1>
                 <hr class="my-4">
-               <p>Press any key to get started</p>
+              
         </div>
         </div>
 
@@ -22,16 +22,16 @@
         <div class="col">
       <div class="card w-75">
         <div class="card-body">
-          <h5 class="card-title">Wins</h5>
-          <p class="card-text"  id = "numWins"></p>
+          <h5 class="card-title">Guess what letter I'm thinking of</h5>
+          <p class="card-text"  id = "game"></p>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card w-50">
         <div class="card-body">
-          <h5 class="card-title">Losses</h5>
-          <p id="numLosses"></p>
+          <h5 class="card-title" id = "wins">Wins: 0</h5>
+          
         </div>
       </div>
        </div>
@@ -41,17 +41,14 @@
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
-                        <div class="rightGuess"><h5 class="card-title">Current Word</h5></div>
-                        <p class="card-text" id="rightGuess"></p>
-                        <p class="card-text" id="underScore"></p>
-                
+                        <div class="rightGuess" id="losses"><h5 class="card-title">Losses: 0</h5></div>
                       </div>
               </div>
            <br>
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Number of guesses left</h5>
+                  <h5 class="card-title">Guesses left</h5>
                   <p class="card-text"  id = "guessesLeft"></p>
                 </div>
               </div>
@@ -60,27 +57,25 @@
          <br>
          <div class="card">
           <div class="card-body">
-          Letters already guessed</div>
-          <p class="card-text"  id = "wrongGuesses"></p>
+          Your Guesses So Far </div>
+          <p class="card-text" id = "usersGuesses"></p>
         </div>
         <br>
-    
+        <!-- <div class="row">
+        <br><br>
+        <input type="button" onclick="myFunction()" value="Reset">
+      </form> -->
 
     
-            
-
-
+        <!-- <br> 
+        <footer>
+              <div class="container">
+                copyright &copy; 2019 Serena Brown
+              </div>
+            </footer> -->
 
 
 <script src="assets/javascript/game.js"></script>
-
-
-
-
-
-
-
-
 
 
 
